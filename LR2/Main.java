@@ -1,42 +1,63 @@
 import mpi.*;
-import mpi.MPI;
-
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) throws Exception{
         MPI.Init(args);
+        int myRank, size;
+        int[] buf = new int[1];
+        int[] s = new int[1];
+        int tag = 0;
+        myRank = MPI.COMM_WORLD.Rank();
+        size = MPI.COMM_WORLD.Size();
+        buf[0] = myRank;
 
-        int rank = MPI.COMM_WORLD.Rank();
-        int size = MPI.COMM_WORLD.Size();
-        int TAG = 0;
-        int s = 0;
-        int buf = rank;
+        // Блокирующий режим
+//        if (size > 1) {
+//            if (myRank == 0) {
+//                System.out.println("Процесс №" + myRank + " отправил сообщение \"" + buf[0] + "\" процессу №" + (myRank + 1));
+//                MPI.COMM_WORLD.Sendrecv(buf, 0, 1, MPI.INT, myRank+1, tag, s, 0, 1, MPI.INT, size-1, tag);
+//                // MPI.COMM_WORLD.Send(buf, 0, 1, MPI.INT, myRank + 1, tag);
+//                // MPI.COMM_WORLD.Recv(buf, 0, 1, MPI.INT, (size-1), tag);
+//                System.out.println("Процесс №" + myRank + " получил сообщение \"" + s[0] + "\" от процесса №" + (size-1));
+//                System.out.println("Полная сумма = " + s[0]);
+//            } else {
+//                int source_process = (myRank - 1 + size) % size;
+//                int destination_process = (myRank + 1) % size;
+//                s[0] = buf[0];
+//                MPI.COMM_WORLD.Recv(buf, 0, 1, MPI.INT, source_process, tag);
+//                System.out.println("Процесс №" + myRank + " получил сообщение \"" + buf[0] + "\" от процесса №" + source_process);
+//                s[0] += buf[0];
+//                System.out.println("Процесс №" + myRank + " отправил сообщение \"" + s[0] + "\" процессу №" + destination_process);
+//                MPI.COMM_WORLD.Send(s, 0, 1, MPI.INT, destination_process, tag);
+//            }
+//        } else {
+//            System.out.println("Недостаточное количество процессов");
+//        }
 
-        int nextRank = (rank + 1) % size; // Ранг следующего процесса по кольцу (если он последний,то станет первым)
-        int prevRank = (rank - 1 + size) % size; // Ранг предыдущего процесса по кольцу (если он  первый, то станет последним)
-        if (rank == 0) {
-            // Массив для получения данных от соседнего процесса (блокирующий режим)
-            int[] output = new int[]{0};
+        // Неблокирующий режим
+        Request request;
+        if (size > 1) {
+            if (myRank == 0) {
+                System.out.println("Процесс №" + myRank + " отправил сообщение \"" + buf[0] + "\" процессу №" + (myRank + 1));
+                request = MPI.COMM_WORLD.Isend(buf, 0, 1, MPI.INT, myRank+1, tag);
+                request = MPI.COMM_WORLD.Irecv(s, 0, 1, MPI.INT, size-1, tag);
 
-            // Одновременная отправка и прием данных
-            MPI.COMM_WORLD.Sendrecv(new int[]{buf}, 0, 1, MPI.INT, nextRank, TAG,
-                    output, 0, 1, MPI.INT, prevRank, TAG);
-
-            System.out.println("Общая сумма: " + output[0]);
+                request.Wait();
+                System.out.println("Процесс №" + myRank + " получил сообщение \"" + s[0] + "\" от процесса №" + (size-1));
+                System.out.println("Полная сумма = " + s[0]);
+            } else {
+                int source_process = (myRank - 1 + size) % size;
+                int destination_process = (myRank + 1) % size;
+                s[0] = buf[0];
+                request = MPI.COMM_WORLD.Irecv(buf, 0, 1, MPI.INT, source_process, tag);
+                request.Wait();
+                System.out.println("Процесс №" + myRank + " получил сообщение \"" + buf[0] + "\" от процесса №" + source_process);
+                s[0] += buf[0];
+                request = MPI.COMM_WORLD.Isend(s, 0, 1, MPI.INT, destination_process, tag);
+                System.out.println("Процесс №" + myRank + " отправил сообщение \"" + s[0] + "\" процессу №" + destination_process);
+            }
         } else {
-            // Массив для получения данных от предыдущего процеса (неблокирующий режим)
-            int[] output = new int[]{0};
-
-            MPI.COMM_WORLD.Recv(output, 0, 1, MPI.INT, prevRank, TAG);
-
-            // Суммирование полученных данных с данными текущего процессора
-            s += output[0] + rank;
-            System.out.println("Сумма: " + s);
-            MPI.COMM_WORLD.Send(new int[]{s}, 0, 1, MPI.INT, nextRank, TAG);
+            System.out.println("Недостаточное количество процессов");
         }
-
         MPI.Finalize();
     }
-
 }
