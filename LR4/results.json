@@ -1,0 +1,45 @@
+[{"exchangeType": "Send/Recv", "processCount": 7, "vectorSize": 100, "seqTimeNanos": 1300, "parTimeNanos": 14450800, "speedup": 0,0001, "seqResult": 23,41, "parResult": 23,41},
+{"exchangeType": "Send/Recv", "processCount": 7, "vectorSize": 10000, "seqTimeNanos": 14700, "parTimeNanos": 2720900, "speedup": 0,0054, "seqResult": 2514,40, "parResult": 2514,40},
+{"exchangeType": "Send/Recv", "processCount": 7, "vectorSize": 100000, "seqTimeNanos": 153000, "parTimeNanos": 7706600, "speedup": 0,0199, "seqResult": 25018,18, "parResult": 25018,18},
+{"exchangeType": "Send/Recv", "processCount": 7, "vectorSize": 1000000, "seqTimeNanos": 1409500, "parTimeNanos": 41330500, "speedup": 0,0341, "seqResult": 250238,34, "parResult": 250238,34},
+{"exchangeType": "Send/Recv", "processCount": 7, "vectorSize": 5000000, "seqTimeNanos": 7185000, "parTimeNanos": 170082800, "speedup": 0,0422, "seqResult": 1249949,07, "parResult": 1249949,07},
+{"exchangeType": "Send/Recv", "processCount": 7, "vectorSize": 10000000, "seqTimeNanos": 13808000, "parTimeNanos": 219463300, "speedup": 0,0629, "seqResult": 2499977,74, "parResult": 2499977,74}
+],
+[
+{"exchangeType": "Broadcast/Reduce", "processCount": 7, "vectorSize": 100, "seqTimeNanos": 4700, "parTimeNanos": 33447800, "speedup": 0,0001, "seqResult": 24,38, "parResult": 24,38},
+{"exchangeType": "Broadcast/Reduce", "processCount": 7, "vectorSize": 10000, "seqTimeNanos": 14400, "parTimeNanos": 10732900, "speedup": 0,0013, "seqResult": 2478,33, "parResult": 2478,33},
+{"exchangeType": "Broadcast/Reduce", "processCount": 7, "vectorSize": 100000, "seqTimeNanos": 149000, "parTimeNanos": 11611100, "speedup": 0,0128, "seqResult": 25033,09, "parResult": 25033,09},
+{"exchangeType": "Broadcast/Reduce", "processCount": 7, "vectorSize": 1000000, "seqTimeNanos": 1964000, "parTimeNanos": 58933900, "speedup": 0,0333, "seqResult": 250052,15, "parResult": 250052,15},
+{"exchangeType": "Broadcast/Reduce", "processCount": 7, "vectorSize": 5000000, "seqTimeNanos": 7950200, "parTimeNanos": 173685100, "speedup": 0,0458, "seqResult": 1250548,72, "parResult": 1250548,72},
+{"exchangeType": "Broadcast/Reduce", "processCount": 7, "vectorSize": 10000000, "seqTimeNanos": 15000700, "parTimeNanos": 327212800, "speedup": 0,0458, "seqResult": 2499594,24, "parResult": 2499594,24}
+],
+[
+{"exchangeType": "Scatter/Gather", "processCount": 7, "vectorSize": 100, "seqTimeNanos": 1900, "parTimeNanos": 8597200, "speedup": 0,0002, "seqResult": 28,12, "parResult": 28,12},
+{"exchangeType": "Scatter/Gather", "processCount": 7, "vectorSize": 10000, "seqTimeNanos": 29800, "parTimeNanos": 6771000, "speedup": 0,0044, "seqResult": 2501,04, "parResult": 2501,04},
+{"exchangeType": "Scatter/Gather", "processCount": 7, "vectorSize": 100000, "seqTimeNanos": 156300, "parTimeNanos": 20665900, "speedup": 0,0076, "seqResult": 25073,49, "parResult": 25073,49},
+{"exchangeType": "Scatter/Gather", "processCount": 7, "vectorSize": 1000000, "seqTimeNanos": 2451900, "parTimeNanos": 155437900, "speedup": 0,0158, "seqResult": 250111,29, "parResult": 250111,29},
+{"exchangeType": "Scatter/Gather", "processCount": 7, "vectorSize": 5000000, "seqTimeNanos": 6609100, "parTimeNanos": 179584500, "speedup": 0,0368, "seqResult": 1250289,31, "parResult": 1250289,31},
+{"exchangeType": "Scatter/Gather", "processCount": 7, "vectorSize": 10000000, "seqTimeNanos": 13219200, "parTimeNanos": 259595600, "speedup": 0,0509, "seqResult": 2499175,12, "parResult": 2499175,12}
+],
+[
+{"exchangeType": "Scatter/Gather", "processCount": 9, "vectorSize": 100, "seqTimeNanos": 4200, "parTimeNanos": 6085400, "speedup": 0,0007, "seqResult": 23,91, "parResult": 23,91},
+{"exchangeType": "Scatter/Gather", "processCount": 9, "vectorSize": 10000, "seqTimeNanos": 13300, "parTimeNanos": 2582600, "speedup": 0,0051, "seqResult": 2497,40, "parResult": 2497,40},
+{"exchangeType": "Scatter/Gather", "processCount": 9, "vectorSize": 100000, "seqTimeNanos": 143500, "parTimeNanos": 4313900, "speedup": 0,0333, "seqResult": 25030,57, "parResult": 25030,57},
+{"exchangeType": "Scatter/Gather", "processCount": 9, "vectorSize": 1000000, "seqTimeNanos": 1856800, "parTimeNanos": 84779600, "speedup": 0,0219, "seqResult": 250542,65, "parResult": 250542,65},
+{"exchangeType": "Scatter/Gather", "processCount": 9, "vectorSize": 5000000, "seqTimeNanos": 8624600, "parTimeNanos": 120180100, "speedup": 0,0718, "seqResult": 1249492,07, "parResult": 1249492,07},
+{"exchangeType": "Scatter/Gather", "processCount": 9, "vectorSize": 10000000, "seqTimeNanos": 24811400, "parTimeNanos": 210326000, "speedup": 0,1180, "seqResult": 2499099,44, "parResult": 2499099,44}
+],
+{"exchangeType": "Send/Recv", "processCount": 9, "vectorSize": 100, "seqTimeNanos": 700, "parTimeNanos": 13873500, "speedup": 0,0001, "seqResult": 26,74, "parResult": 26,74},
+{"exchangeType": "Send/Recv", "processCount": 9, "vectorSize": 10000, "seqTimeNanos": 15200, "parTimeNanos": 3100100, "speedup": 0,0049, "seqResult": 2520,95, "parResult": 2520,95},
+{"exchangeType": "Send/Recv", "processCount": 9, "vectorSize": 100000, "seqTimeNanos": 142000, "parTimeNanos": 13937000, "speedup": 0,0102, "seqResult": 25013,95, "parResult": 25013,95},
+{"exchangeType": "Send/Recv", "processCount": 9, "vectorSize": 1000000, "seqTimeNanos": 1434600, "parTimeNanos": 35508300, "speedup": 0,0404, "seqResult": 249968,63, "parResult": 249968,63},
+{"exchangeType": "Send/Recv", "processCount": 9, "vectorSize": 5000000, "seqTimeNanos": 6886200, "parTimeNanos": 122339600, "speedup": 0,0563, "seqResult": 1249910,95, "parResult": 1249910,95},
+{"exchangeType": "Send/Recv", "processCount": 9, "vectorSize": 10000000, "seqTimeNanos": 13351200, "parTimeNanos": 200530500, "speedup": 0,0666, "seqResult": 2500104,35, "parResult": 2500104,35}
+],
+{"exchangeType": "Broadcast/Reduce", "processCount": 9, "vectorSize": 100, "seqTimeNanos": 4700, "parTimeNanos": 32474600, "speedup": 0,0001, "seqResult": 27,01, "parResult": 27,01},
+{"exchangeType": "Broadcast/Reduce", "processCount": 9, "vectorSize": 10000, "seqTimeNanos": 24400, "parTimeNanos": 13450400, "speedup": 0,0018, "seqResult": 2463,17, "parResult": 2463,17},
+{"exchangeType": "Broadcast/Reduce", "processCount": 9, "vectorSize": 100000, "seqTimeNanos": 130600, "parTimeNanos": 23180700, "speedup": 0,0056, "seqResult": 25129,50, "parResult": 25129,50},
+{"exchangeType": "Broadcast/Reduce", "processCount": 9, "vectorSize": 1000000, "seqTimeNanos": 2022300, "parTimeNanos": 52779300, "speedup": 0,0383, "seqResult": 250196,63, "parResult": 250196,63},
+{"exchangeType": "Broadcast/Reduce", "processCount": 9, "vectorSize": 5000000, "seqTimeNanos": 6982700, "parTimeNanos": 147531700, "speedup": 0,0473, "seqResult": 1249600,13, "parResult": 1249600,13},
+{"exchangeType": "Broadcast/Reduce", "processCount": 9, "vectorSize": 10000000, "seqTimeNanos": 13374000, "parTimeNanos": 194485000, "speedup": 0,0688, "seqResult": 2499478,16, "parResult": 2499478,16}
+]
